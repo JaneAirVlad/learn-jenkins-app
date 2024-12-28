@@ -21,7 +21,7 @@ pipeline {
                     npm run build
                     ls -la
                 '''
-            } 
+            }
         }
         */
         stage('Run Tests'){
@@ -43,7 +43,7 @@ pipeline {
                     }
                 }
                 
-                        stage('E2E-test') {
+                stage('E2E-test') {
                     agent {
                         docker {
                             image 'mcr.microsoft.com/playwright:v1.39.0-jammy'
@@ -60,17 +60,22 @@ pipeline {
                         '''
                     }
                 }
-
             }
+                post {
+                    always {
+                        junit 'jest-results/junit.xml'
+                        publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'playwright-report', reportFiles: 'index.html', reportName: 'Playwright HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+                    }
+            }
+
+
+
+
+            
         }
         
 
     }
 
-    post {
-        always {
-            junit 'jest-results/junit.xml'
-            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'playwright-report', reportFiles: 'index.html', reportName: 'Playwright HTML Report', reportTitles: '', useWrapperFileDirectly: true])
-        }
-    }
+
 }
