@@ -26,6 +26,7 @@ pipeline {
             steps {
                 sh '''
                     echo "test stage"
+                    test -f index.html
                 '''
             }
         }
