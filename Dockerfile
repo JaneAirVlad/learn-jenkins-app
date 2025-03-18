@@ -1,11 +1,11 @@
-# Используем официальный образ Java
-FROM openjdk:17-jdk-slim
+# Используйте официальный образ OpenJDK
+FROM openjdk:17-jdk-alpine
 
-# Устанавливаем рабочий каталог в контейнере
+# Установите рабочую директорию
 WORKDIR /app
 
-# Копируем сборку из target в рабочий каталог
+# Копируйте JAR-файл в контейнер
 COPY target/learn-jenkins-app-1.0-SNAPSHOT.jar app.jar
 
-# Команда для запуска приложения
+# Укажите команду для запуска приложения
 ENTRYPOINT ["java", "-jar", "app.jar"]
