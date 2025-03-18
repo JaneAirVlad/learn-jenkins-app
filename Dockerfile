@@ -5,7 +5,7 @@ FROM openjdk:11-jre-slim
 WORKDIR /app
 
 # Копируем собранный JAR файл в контейнер
-COPY build/libs/my-app.jar my-app.jar
+COPY target/learn-jenkins-app-1.0-SNAPSHOT.jar my-app.jar
 
 # Указываем команду для запуска приложения
 CMD ["java", "-jar", "my-app.jar"]
