@@ -24,3 +24,11 @@ yarn-error.log*
 /test-results/
 /playwright-report/
 /playwright/.cache/
+
+target/
+*.jar
+*.war
+*.class
+.idea/
+*.iml
+*.log
