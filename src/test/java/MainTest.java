@@ -1,10 +1,9 @@
-// src/test/java/MainTest.java
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test; // Импорт для JUnit 5
+import static org.junit.jupiter.api.Assertions.assertEquals; // Импорт статического метода
 
 public class MainTest {
     @Test
-    public void testExample() {
-        assertEquals(1, 1);
+    public void sampleTest() {
+        assertEquals(1, 1); // Пример теста
     }
 }
